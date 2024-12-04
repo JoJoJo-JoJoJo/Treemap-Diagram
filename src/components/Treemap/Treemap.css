@@ -1,0 +1,13 @@
+.treemap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5%;
+}
+
+.rendered-svg {
+  width: inherit;
+  height: inherit;
+  position: relative;
+}

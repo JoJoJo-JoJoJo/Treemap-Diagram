@@ -1,3 +1,5 @@
+import { SetStateAction } from "react";
+
 type marginProps = {
   top: number;
   right: number;
@@ -12,18 +14,18 @@ type AnchorProps = {
   text: string;
 };
 
-type Pledge = {
+interface Pledge {
   readonly name: string;
-  readonly category: string;
+  readonly category?: string;
   readonly value: number;
 };
 
-type ProductDesign = {
-  readonly name: "ProductDesign";
+type Category = {
+  readonly name: string;
   readonly children: Pledge[];
 };
 
-type DataChildren = readonly ProductDesign[];
+type DataChildren = readonly Category[];
 
 type DataProps = {
   readonly name: "Kickstarter";
@@ -32,19 +34,27 @@ type DataProps = {
 
 type RendererProps = {
   data: DataProps;
+  setHoveredCell: React.Dispatch<SetStateAction<InteractData | null>>;
+  setIsHovered: React.Dispatch<SetStateAction<boolean>>;
 };
 
-interface InteractData {
+interface InteractData extends Pledge {
   readonly xPos: loadingNum;
   readonly yPos: loadingNum;
-  readonly pledge: Pledge;
 }
+
+type TooltipProps = {
+  hoveredCell: InteractData | null;
+  isHovered: boolean;
+};
 
 export type {
   marginProps,
   AnchorProps,
+  Pledge,
   DataChildren,
   DataProps,
   RendererProps,
   InteractData,
+  TooltipProps,
 };

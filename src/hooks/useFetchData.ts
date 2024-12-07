@@ -1,13 +1,13 @@
-import { useQuery } from "@tanstack/react-query"
-import { DataProps } from "../constants/types";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { Tree } from "../constants/types";
 
 export const useFetchData = (url: string) => {
-  return useQuery({
+  return useSuspenseQuery({
     queryKey: [url],
-    queryFn: async (): Promise<DataProps> => {
+    queryFn: async (): Promise<Tree> => {
       const res = await fetch(url);
       const json = res.json();
       return json;
-    }
+    },
   });
-}
+};

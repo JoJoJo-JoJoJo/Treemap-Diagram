@@ -1,5 +1,15 @@
 .tooltip {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 170px;
+  font-size: 14px;
+  color: black;
+}
+
+.tooltip > div {
+  background-color: wheat;
+  border: 2px solid white;
+  border-radius: 5px;
 }

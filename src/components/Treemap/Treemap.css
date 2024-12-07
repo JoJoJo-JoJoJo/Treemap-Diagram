@@ -3,7 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 5%;
+  background-color: whitesmoke;
+  margin-top: 7%;
 }
 
 .rendered-svg {

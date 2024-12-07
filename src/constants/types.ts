@@ -14,47 +14,79 @@ type AnchorProps = {
   text: string;
 };
 
-interface Pledge {
-  readonly name: string;
-  readonly category?: string;
-  readonly value: number;
+// * ---------------------------------------------------------------------------------------->
+type Node = {
+  value: number;
+  name: string;
+  children: Tree[];
 };
 
-type Category = {
-  readonly name: string;
-  readonly children: Pledge[];
+type Leaf = {
+  name: string;
+  value: number;
 };
 
-type DataChildren = readonly Category[];
+type Tree = Node;
 
-type DataProps = {
-  readonly name: "Kickstarter";
-  readonly children: DataChildren;
-};
+// interface Pledge {
+//   readonly name: string;
+//   readonly category?: string;
+//   readonly value: number;
+// }
+
+// type Category = {
+//   readonly name: string;
+//   readonly children: Pledge[];
+// };
+
+// type DataChildren = readonly Category[];
+
+// type DataProps = {
+//   readonly type: "node";
+//   readonly name: "Kickstarter";
+//   readonly children: DataChildren;
+// };
+// * ---------------------------------------------------------------------------------------->
 
 type RendererProps = {
-  data: DataProps;
+  data: Tree;
   setHoveredCell: React.Dispatch<SetStateAction<InteractData | null>>;
   setIsHovered: React.Dispatch<SetStateAction<boolean>>;
+  color: colorFn;
 };
 
-interface InteractData extends Pledge {
+type InteractData = {
+  readonly name: string;
+  readonly category: string;
+  readonly value: number;
   readonly xPos: loadingNum;
   readonly yPos: loadingNum;
-}
+};
 
 type TooltipProps = {
   hoveredCell: InteractData | null;
   isHovered: boolean;
 };
 
+type colorFn = (str: string) => string;
+
+type CLegendProps = {
+  data: Tree;
+  color: colorFn;
+};
+
 export type {
   marginProps,
   AnchorProps,
-  Pledge,
-  DataChildren,
-  DataProps,
+  // Pledge,
+  // DataChildren,
+  // DataProps,
+  Leaf,
+  Node,
+  Tree,
   RendererProps,
   InteractData,
   TooltipProps,
+  CLegendProps,
+  colorFn,
 };

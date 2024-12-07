@@ -20,16 +20,18 @@ const Tooltip = ({ hoveredCell, isHovered }: TooltipProps) => {
       data-value={value}
     >
       <div style={{ position: "absolute" }}>
-        <div className="col">
-          <b className="bold">Name: </b>
-          <b className="bold">Category: </b>
-          <b className="bold">Value: </b>
-        </div>
-        <div className="col">
-          <p>{name}</p>
-          <p>{category}</p>
-          <p>{value}</p>
-        </div>
+        <p>
+          <b>Name: </b>
+          {name}
+        </p>
+        <p>
+          <b>Category: </b>
+          {category}
+        </p>
+        <p>
+          <b>Value: </b>
+          {value}
+        </p>
       </div>
     </div>
   );

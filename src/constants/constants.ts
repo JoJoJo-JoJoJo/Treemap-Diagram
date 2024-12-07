@@ -1,12 +1,14 @@
-import { marginProps, Pledge } from "./types";
+import { marginProps } from "./types";
 
-const margin: marginProps = { top: 20, right: 20, bottom: 200, left: 20 };
+const margin: marginProps = { top: 20, right: 20, bottom: 120, left: 20 };
 
 const width: number = 800 - margin.left - margin.right;
 const height: number = 700 - margin.top - margin.bottom;
 
 const url =
   "https://cdn.freecodecamp.org/testable-projects-fcc/data/tree_map/kickstarter-funding-data.json";
+
+const flaticonLink = "https://www.flaticon.com";
 
 const colors: string[] = [
   "#800000",
@@ -16,7 +18,7 @@ const colors: string[] = [
   "#f58231",
   "#808000",
   "#ffe119",
-  "#fffac8",
+  "#dcbf85",
   "#3cb44b",
   "#aaffc3",
   "#469990",
@@ -30,10 +32,4 @@ const colors: string[] = [
   "#a9a9a9",
 ];
 
-const leafBuffer: Pledge = {
-  name: "",
-  category: "",
-  value: 0,
-};
-
-export { width, height, margin, url, colors, leafBuffer };
+export { width, height, margin, url, flaticonLink, colors };

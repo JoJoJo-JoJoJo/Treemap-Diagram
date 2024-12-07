@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { AnchorProps } from "../../constants/types";
 
 const Anchor = ({ href, text }: AnchorProps) => {
@@ -18,4 +18,4 @@ const Anchor = ({ href, text }: AnchorProps) => {
   );
 };
 
-export default Anchor;
+export default React.memo(Anchor);

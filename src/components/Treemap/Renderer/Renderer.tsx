@@ -41,11 +41,11 @@ const Renderer = ({
           data-name={leaf.data.name}
           data-category={parent}
           data-value={leaf.data.value}
-          onMouseEnter={() => {
+          onMouseEnter={(e) => {
             setIsHovered(true);
             setHoveredCell({
-              xPos: (leaf.x0 + leaf.x1) / 2,
-              yPos: (leaf.y0 + leaf.y1) / 2 + 0.25 * height,
+              xPos: e.pageX,
+              yPos: e.pageY,
               name: leaf.data.name,
               category: parent,
               value: leaf.data.value,
